@@ -1,175 +1,121 @@
-// 1. Verificar número positivo, negativo ou zero
-let num = prompt("Digite um número:");
-num = parseFloat(num);
-if (num > 0) {
-    console.log("O número é positivo.");
-} else if (num < 0) {
-    console.log("O número é negativo.");
+
+
+// 1. 
+let colegas = ['merinda', 'lux', 'soraka', 'nasus', 'annie'];
+console.log('1. Nomes de colegas:', colegas);
+
+// 2. 
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log('2. Números pares:');
+for (let num of numeros) {
+  if (num % 2 === 0) {
+    console.log(num);
+  }
+}
+
+// 3.
+let arrayNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let soma = arrayNumeros.reduce((acumulador, atual) => acumulador + atual, 0);
+console.log('3. Soma dos 10 números:', soma);
+
+// 4.
+let listaNomes = ['merinda', 'lux', 'soraka', 'nasus', 'annie'];
+let nomeUsuario = prompt('Digite um nome para verificar:'); 
+if (listaNomes.includes(nomeUsuario)) {
+  console.log(`4. Nome '${nomeUsuario}' encontrado na lista!`);
 } else {
-    console.log("O número é zero.");
+  console.log(`4. Nome '${nomeUsuario}' não encontrado na lista. `);
 }
-// 2. Classificar idade
-let idade = prompt("Digite a idade:");
-idade = parseInt(idade);
-if (idade >= 0 && idade <= 12) {
-    console.log("Criança");
-} else if (idade >= 13 && idade <= 17) {
-    console.log("Adolescente");
-} else if (idade >= 18 && idade <= 59) {
-    console.log("Adulto");
-} else if (idade >= 60) {
-    console.log("Idoso");
-} else {
-    console.log("Idade inválida");
+
+
+let arrayOriginal = [1, 2, 3, 4, 5];
+let arrayInvertido = [...arrayOriginal].reverse(); 
+console.log('5. Array original:', arrayOriginal);
+console.log('5. Array invertido:', arrayInvertido);
+
+// 6.
+let pessoa = {
+  nome: 'Jeniffer Lima',
+  idade: 30,
+  profissao: 'Desenvolvedor'
+};
+console.log('6. Informações da pessoa:', pessoa);
+
+// 7.
+let carro = {
+  modelo: 'Fusca',
+  ano: 1970,
+  cor: 'Azul',
+  exibirInfo: function() {
+    console.log(`7. Meu carro é um ${this.modelo} do ano ${this.ano}, na cor ${this.cor}.`);
+  }
+};
+carro.exibirInfo();
+
+// 8.
+let alunos = [
+  { nome: 'louise', nota: 8.5 },
+  { nome: 'merinda', nota: 6.0 },
+  { nome: 'amumu', nota: 7.5 },
+  { nome: 'annie', nota: 9.0 },
+  { nome: 'Lucas', nota: 5.5 }
+];
+console.log('8. Alunos com nota >= 7:');
+alunos.filter(aluno => aluno.nota >= 7).forEach(aluno => {
+  console.log(`${aluno.nome} - Nota: ${aluno.nota}`);
+});
+
+// 9.
+let objetoExistente = {
+  nome: 'merinda',
+  idade: 30
+};
+objetoExistente.endereco = 'Rua das Flores, 123';
+console.log('9. Objeto após adicionar endereço:', objetoExistente);
+
+// 10.
+let produto = {
+  nome: 'doce de leite',
+  preco: 10.50,
+  quantidade: 20
+};
+function calcularTotalEmEstoque(prod) {
+  return prod.preco * prod.quantidade;
 }
-// 3. Tabuada de 1 a 10
-let numero = prompt("Digite um número:");
-numero = parseInt(numero);
-for (let i = 1; i <= 10; i++) {
-    console.log(`${numero} x ${i} = ${numero * i}`);
+console.log('10. Valor total em estoque:', calcularTotalEmEstoque(produto));
+
+
+// 11. 
+function somar(a, b) {
+  return a + b;
 }
-// 4. Números pares de 1 a 50
-for (let i = 2; i <= 50; i += 2) {
-    console.log(i);
+console.log('11. Soma de 5 + 3:', somar(5, 3));
+
+// 12.
+function verificarParImpar(numero) {
+  return numero % 2 === 0 ? 'Par' : 'Ímpar';
 }
-// 5. Soma de 1 até o número usando while
-let n = prompt("Digite um número:");
-n = parseInt(n);
-let soma = 0;
-let i = 1;
-while (i <= n) {
-    soma += i;
-    i++;
+console.log('12. O número 4 é:', verificarParImpar(4));
+console.log('12. O número 7 é:', verificarParImpar(7));
+
+// 13.
+function encontrarMaior(array) {
+  return Math.max(...array);
 }
-console.log(`A soma de 1 até ${n} é ${soma}`);// 6. Dia da semana
-let dia = prompt("Digite um número de 1 a 7:");
-dia = parseInt(dia);
-switch (dia) {
-    case 1:
-        console.log("Domingo");
-        break;
-    case 2:
-        console.log("Segunda-feira");
-        break;
-    case 3:
-        console.log("Terça-feira");
-        break;
-    case 4:
-        console.log("Quarta-feira");
-        break;
-    case 5:
-        console.log("Quinta-feira");
-        break;
-    case 6:
-        console.log("Sexta-feira");
-        break;
-    case 7:
-        console.log("Sábado");
-        break;
-    default:
-        console.log("Número inválido");
+let arrayTeste = [3, 7, 2, 9, 1];
+console.log('13. Maior número no array:', encontrarMaior(arrayTeste));
+
+// 14.
+function mensagemBoasVindas(nome) {
+  return `Bem-vindo(a), ${nome}!`;
 }
-// 7. Classificação de nota
-let nota = prompt("Digite uma nota de 0 a 10:");
-nota = parseInt(nota);
-switch (true) {
-    case (nota >= 0 && nota <= 4):
-        console.log("Insuficiente");
-        break;
-    case (nota >= 5 && nota <= 6):
-        console.log("Regular");
-        break;
-    case (nota >= 7 && nota <= 8):
-        console.log("Bom");
-        break;
-    case (nota >= 9 && nota <= 10):
-        console.log("Ótimo");
-        break;
-    default:
-        console.log("Nota inválida");
+console.log('14. Mensagem:', mensagemBoasVindas('Merinda'));
+
+// 15. 
+function fatorial(numero) {
+  if (numero <= 1) {
+    return 1;
+  }
+  return numero * fatorial(numero - 1);
 }
-// 8. Mensagem sobre fruta
-let fruta = prompt("Digite o nome de uma fruta:");
-fruta = fruta.toLowerCase();
-switch (fruta) {
-    case "banana":
-        console.log("Banana custa R$ 3,00 o quilo");
-        break;
-    case "maçã":
-        console.log("Maçã custa R$ 5,00 o quilo");
-        break;
-    case "laranja":
-        console.log("Laranja custa R$ 2,50 o quilo");
-        break;
-    default:
-        console.log("Fruta não cadastrada");
-}
-// 9. Mês correspondente
-let mes = prompt("Digite um número de 1 a 12:");
-mes = parseInt(mes);
-switch (mes) {
-    case 1:
-        console.log("Janeiro");
-        break;
-    case 2:
-        console.log("Fevereiro");
-        break;
-    case 3:
-        console.log("Março");
-        break;
-    case 4:
-        console.log("Abril");
-        break;
-    case 5:
-        console.log("Maio");
-        break;
-    case 6:
-        console.log("Junho");
-        break;
-    case 7:
-        console.log("Julho");
-        break;
-    case 8:
-        console.log("Agosto");
-        break;
-    case 9:
-        console.log("Setembro");
-        break;
-    case 10:
-        console.log("Outubro");
-        break;
-    case 11:
-        console.log("Novembro");
-        break;
-    case 12:
-        console.log("Dezembro");
-        break;
-    default:
-        console.log("Número inválido");
-}
-// 10. Menu de lanchonete
-let opcao;
-do {
-    console.log("1 - Hambúrguer");
-    console.log("2 - Pizza");
-    console.log("3 - Refrigerante");
-    console.log("4 - Sair");
-    opcao = prompt("Escolha uma opção:");
-    opcao = parseInt(opcao);
-    switch (opcao) {
-        case 1:
-            console.log("Você pediu Hambúrguer");
-            break;
-        case 2:
-            console.log("Você pediu Pizza");
-            break;
-        case 3:
-            console.log("Você pediu Refrigerante");
-            break;
-        case 4:
-            console.log("Saindo...");
-            break;
-        default:
-            console.log("Opção inválida");
-    }
-} while (opcao !== 4);
+console.log('15. Fatorial de 5:', fatorial(5));
